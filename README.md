@@ -1,4 +1,4 @@
-# docker-peazip
+# docker-chromium-with-flash
 
 ### 内置flash的浏览器
 
