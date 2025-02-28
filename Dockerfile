@@ -9,12 +9,12 @@ RUN apt-get update && \
     cd /tmp/app && \
     tar -xf flash_player_patched_ppapi_linux.x86_64.tar.gz && \
     mv libpepflashplayer.so start-chromium /opt/ && \
-    chmod 777 /opt/start-chromium && \
+    chmod 111 /opt/start-chromium && \
     dpkg -i libavutil56_4.4.2-1+b3_amd64.deb && \
     dpkg -i libavcodec58_4.4.2-1+b3_amd64.deb libswresample3_4.4.2-1+b3_amd64.deb libsrt1.4-gnutls_1.4.4-4+b1_amd64.deb && \
     dpkg -i lib*.deb && \
-    dpkg -i chromium-common_87.0.4280.141-0.1_amd64.deb chromium_87.0.4280.141-0.1_amd64.deb chromium-sandbox_87.0.4280.141-0.1_amd64.deb chromium-l10n_87.0.4280.141-0.1_all.deb && \
-    echo "/opt/start-chromium" > /defaults/autostart && \
+    dpkg -i chromium*.deb && \
+    echo '/opt/start-chromium ${CHROME_CLI}' > /defaults/autostart && \
     rm -rf /tmp/app && \
     apt-get autoclean && \
     rm -rf \
