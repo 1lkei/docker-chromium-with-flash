@@ -10,7 +10,6 @@
 docker run -d \
     --name=chromium-with-flash \
     --restart=unless-stopped \
-    --security-opt seccomp=unconfined \ # optional
     -p 3000:3000 \
     -p 3001:3001 \
     -v /config:/config \
@@ -23,6 +22,7 @@ docker run -d \
     -e PASSWORD=pw \
     -e START_DOCKER=false \
     -e LC_ALL=zh_CN.UTF-8 \
+    -e CHROME_CLI="--no-sandbox" \ # 可选，附加运行参数，一般不用删除即可
     --shm-size="1gb" \
     1lkei/chromium-with-flash:latest
 ```
@@ -37,7 +37,7 @@ https端口(默认值)
 `-e PASSWORD=pw`  
 **请及时修改账号密码！**
 
-若遇到无法启动gui等兼容问题，可尝试添加以下选项  
+若遇到无法启动gui等兼容问题，可尝试添加以下选项（添加后建议添加运行参数`--no-sandbox`，沙盒有点问题，会报错）  
 `--security-opt seccomp=unconfined`
 
 添加以下环境变量启用cn等语言支持  
