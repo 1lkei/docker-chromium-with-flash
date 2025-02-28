@@ -9,7 +9,7 @@ RUN apt-get update && \
     cd /tmp/app && \
     tar -xf flash_player_patched_ppapi_linux.x86_64.tar.gz && \
     mv libpepflashplayer.so start-chromium /opt/ && \
-    chmod 777 /opt/start-chromium && \
+    chmod +x /opt/start-chromium && \
     dpkg -i libavutil56_4.4.2-1+b3_amd64.deb && \
     dpkg -i libavcodec58_4.4.2-1+b3_amd64.deb libswresample3_4.4.2-1+b3_amd64.deb libsrt1.4-gnutls_1.4.4-4+b1_amd64.deb && \
     dpkg -i lib*.deb && \
